@@ -38,6 +38,8 @@ config/master.key
 /vendor/bundle
 
 .vscode
+.github
+.kamal
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
