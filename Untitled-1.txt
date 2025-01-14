@@ -1,0 +1,225 @@
+
+
+como habilitar essa integração via TCP:
+
+---
+
+### 1. **JetBrains IntelliJ IDEA (e outras IDEs da JetBrains, como PyCharm, WebStorm, etc.)**
+
+O **IntelliJ IDEA** e outras IDEs da **JetBrains** possuem uma integração nativa com o Docker. A partir da versão 15, o Docker pode ser configurado para ser gerenciado diretamente na IDE.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker** (se não estiver ativado por padrão):
+   - Vá para **File** > **Settings** > **Plugins**.
+   - Pesquise por **Docker** e instale o plugin.
+   
+2. **Configurar a conexão via TCP**:
+   - Vá para **File** > **Settings** > **Build, Execution, Deployment** > **Docker**.
+   - Clique no ícone **"+"** para adicionar uma nova configuração.
+   - Selecione **Docker API**.
+   - Na configuração, escolha **TCP socket** e insira o endereço `tcp://<ip-do-servidor>:2375` (por exemplo, `tcp://0.0.0.0:2375`).
+
+Isso vai permitir que você use os recursos do Docker diretamente dentro da IDE, como construir e executar contêineres, visualizar imagens e logs, etc.
+
+---
+
+### 2. **Eclipse IDE**
+
+O **Eclipse** também possui um plugin chamado **Docker Tooling** para integrar o Docker ao ambiente de desenvolvimento. Com esse plugin, você pode gerenciar imagens, contêineres e até mesmo o Docker Compose diretamente dentro do Eclipse.
+
+#### Como configurar a integração:
+1. **Instalar o Docker Tooling**:
+   - Vá para **Help** > **Eclipse Marketplace**.
+   - Pesquise por **Docker Tooling** e instale o plugin.
+
+2. **Configurar a conexão via TCP**:
+   - Vá para **Window** > **Preferences** > **Docker**.
+   - Adicione uma nova configuração e selecione **TCP Socket**.
+   - Defina o **Endereço do Docker** como `tcp://<ip-do-servidor>:2375`.
+
+Isso permitirá que você acesse o Docker diretamente pela interface do Eclipse, podendo gerenciar contêineres, imagens, volumes e redes.
+
+---
+
+### 3. **Atom (com o plugin "docker" ou "ide-docker")**
+
+O **Atom** é uma editor de texto que, através de alguns pacotes (plugins), pode ser configurado para interagir com o Docker.
+
+#### Como configurar a integração:
+1. **Instalar o pacote `ide-docker`**:
+   - Abra o Atom e vá em **File** > **Settings** > **Install**.
+   - Pesquise por **ide-docker** e instale o pacote.
+
+2. **Configurar o Docker**:
+   - O pacote **ide-docker** geralmente detecta automaticamente a instalação do Docker, mas você também pode configurar a conexão via TCP através das configurações do pacote no arquivo `config.cson`.
+
+Embora o Atom não tenha suporte nativo completo para Docker como o VSCode, ele é uma alternativa leve e pode ser útil para desenvolvedores que preferem uma interface mais simples.
+
+---
+
+### 4. **NetBeans**
+
+O **NetBeans** também pode ser integrado com o Docker, mas a integração não é tão robusta quanto nas IDEs mencionadas anteriormente. Existe um plugin **Docker for NetBeans**, que pode ser usado para se conectar ao Docker via TCP.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker**:
+   - Vá em **Tools** > **Plugins** > **Available Plugins** e pesquise por **Docker**.
+   - Instale o plugin e reinicie a IDE.
+   
+2. **Configurar a conexão via TCP**:
+   - Vá em **Window** > **Docker** para acessar a aba Docker.
+   - Selecione **Docker Hosts** e configure o Docker para usar o TCP (`tcp://<ip-do-servidor>:2375`).
+
+Assim como o Eclipse, o NetBeans permite uma interação básica com o Docker diretamente na IDE.
+
+---
+
+### 5. **PyCharm**
+
+Assim como o IntelliJ IDEA, o **PyCharm** (da JetBrains) também possui integração com Docker. Isso permite que você construa e execute contêineres diretamente a partir da IDE.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker** (se necessário):
+   - Acesse **File** > **Settings** > **Plugins** e instale o plugin Docker (se não estiver ativado).
+
+2. **Configurar a conexão via TCP**:
+   - Vá para **File** > **Settings** > **Build, Execution, Deployment** > **Docker**.
+   - Adicione uma nova configuração e selecione **Docker API**.
+   - Escolha **TCP socket** e insira o endereço `tcp://<ip-do-servidor>:2375`.
+
+Isso permitirá gerenciar imagens e contêineres Docker diretamente no PyCharm, o que é especialmente útil para desenvolvedores Python que usam Docker em seus fluxos de trabalho.
+
+---
+
+### 6. **Sublime Text (com o plugin "Dockerfile")**
+
+Embora o **Sublime Text** não tenha uma integração direta com Docker, você pode instalar o plugin **Dockerfile** para editar Dockerfiles diretamente e usar ferramentas externas para gerenciar contêineres.
+
+#### Como configurar a integração:
+1. **Instalar o pacote Dockerfile**:
+   - Abra o **Package Control** no Sublime Text e instale o pacote **Dockerfile**.
+   
+2. **Gerenciar Docker externamente**:
+   - O Sublime Text não interage diretamente com o Docker via TCP, mas você pode usar ferramentas de linha de comando ou um terminal integrado ao Sublime para executar comandos Docker e Docker Compose.
+
+---
+
+### Resumo
+
+Aqui estão algumas das IDEs que podem ser integradas com o Docker via TCP:
+
+- **IntelliJ IDEA** (e outras IDEs JetBrains como PyCharm, WebStorm, etc.)
+- **Eclipse IDE**
+- **Atom** (com pacotes como `ide-docker`)
+- **NetBeans**
+- **PyCharm** (mesmo funcionamento que IntelliJ IDEA)
+- **Sublime Text** (com plugins, mas sem suporte direto para gerenciamento de contêineres)
+
+Cada uma dessas IDEs tem uma abordagem diferente para integrar o Docker. As IDEs da JetBrains, como IntelliJ e PyCharm, oferecem uma das melhores integrações com o Docker, permitindo gerenciamento completo de contêineres diretamente na IDE, enquanto outras, como o Atom e o Sublime, oferecem soluções mais simples.
+
+Se precisar de mais detalhes sobre como configurar a integração de uma dessas IDEs, basta perguntar!Integrar o Docker com **IDE's** pode melhorar a produtividade de desenvolvimento, permitindo que você construa, execute e gerencie contêineres diretamente a partir do ambiente de desenvolvimento. Além do **VSCode**, várias outras IDEs também podem ser configuradas para se integrar ao Docker, e muitas delas podem usar a conexão via **TCP** ao servidor Docker, assim como o VSCode.
+
+Aqui estão algumas **IDE's populares** que oferecem integração com Docker (e como habilitar essa integração via TCP):
+
+---
+
+### 1. **JetBrains IntelliJ IDEA (e outras IDEs da JetBrains, como PyCharm, WebStorm, etc.)**
+
+O **IntelliJ IDEA** e outras IDEs da **JetBrains** possuem uma integração nativa com o Docker. A partir da versão 15, o Docker pode ser configurado para ser gerenciado diretamente na IDE.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker** (se não estiver ativado por padrão):
+   - Vá para **File** > **Settings** > **Plugins**.
+   - Pesquise por **Docker** e instale o plugin.
+   
+2. **Configurar a conexão via TCP**:
+   - Vá para **File** > **Settings** > **Build, Execution, Deployment** > **Docker**.
+   - Clique no ícone **"+"** para adicionar uma nova configuração.
+   - Selecione **Docker API**.
+   - Na configuração, escolha **TCP socket** e insira o endereço `tcp://<ip-do-servidor>:2375` (por exemplo, `tcp://0.0.0.0:2375`).
+
+Isso vai permitir que você use os recursos do Docker diretamente dentro da IDE, como construir e executar contêineres, visualizar imagens e logs, etc.
+
+---
+
+### 2. **Eclipse IDE**
+
+O **Eclipse** também possui um plugin chamado **Docker Tooling** para integrar o Docker ao ambiente de desenvolvimento. Com esse plugin, você pode gerenciar imagens, contêineres e até mesmo o Docker Compose diretamente dentro do Eclipse.
+
+#### Como configurar a integração:
+1. **Instalar o Docker Tooling**:
+   - Vá para **Help** > **Eclipse Marketplace**.
+   - Pesquise por **Docker Tooling** e instale o plugin.
+
+2. **Configurar a conexão via TCP**:
+   - Vá para **Window** > **Preferences** > **Docker**.
+   - Adicione uma nova configuração e selecione **TCP Socket**.
+   - Defina o **Endereço do Docker** como `tcp://<ip-do-servidor>:2375`.
+
+Isso permitirá que você acesse o Docker diretamente pela interface do Eclipse, podendo gerenciar contêineres, imagens, volumes e redes.
+
+---
+
+### 3. **Atom (com o plugin "docker" ou "ide-docker")**
+
+O **Atom** é uma editor de texto que, através de alguns pacotes (plugins), pode ser configurado para interagir com o Docker.
+
+#### Como configurar a integração:
+1. **Instalar o pacote `ide-docker`**:
+   - Abra o Atom e vá em **File** > **Settings** > **Install**.
+   - Pesquise por **ide-docker** e instale o pacote.
+
+2. **Configurar o Docker**:
+   - O pacote **ide-docker** geralmente detecta automaticamente a instalação do Docker, mas você também pode configurar a conexão via TCP através das configurações do pacote no arquivo `config.cson`.
+
+Embora o Atom não tenha suporte nativo completo para Docker como o VSCode, ele é uma alternativa leve e pode ser útil para desenvolvedores que preferem uma interface mais simples.
+
+---
+
+### 4. **NetBeans**
+
+O **NetBeans** também pode ser integrado com o Docker, mas a integração não é tão robusta quanto nas IDEs mencionadas anteriormente. Existe um plugin **Docker for NetBeans**, que pode ser usado para se conectar ao Docker via TCP.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker**:
+   - Vá em **Tools** > **Plugins** > **Available Plugins** e pesquise por **Docker**.
+   - Instale o plugin e reinicie a IDE.
+   
+2. **Configurar a conexão via TCP**:
+   - Vá em **Window** > **Docker** para acessar a aba Docker.
+   - Selecione **Docker Hosts** e configure o Docker para usar o TCP (`tcp://<ip-do-servidor>:2375`).
+
+Assim como o Eclipse, o NetBeans permite uma interação básica com o Docker diretamente na IDE.
+
+---
+
+### 5. **PyCharm**
+
+Assim como o IntelliJ IDEA, o **PyCharm** (da JetBrains) também possui integração com Docker. Isso permite que você construa e execute contêineres diretamente a partir da IDE.
+
+#### Como configurar a integração:
+1. **Instalar o plugin Docker** (se necessário):
+   - Acesse **File** > **Settings** > **Plugins** e instale o plugin Docker (se não estiver ativado).
+
+2. **Configurar a conexão via TCP**:
+   - Vá para **File** > **Settings** > **Build, Execution, Deployment** > **Docker**.
+   - Adicione uma nova configuração e selecione **Docker API**.
+   - Escolha **TCP socket** e insira o endereço `tcp://<ip-do-servidor>:2375`.
+
+Isso permitirá gerenciar imagens e contêineres Docker diretamente no PyCharm, o que é especialmente útil para desenvolvedores Python que usam Docker em seus fluxos de trabalho.
+
+---
+
+### 6. **Sublime Text (com o plugin "Dockerfile")**
+
+Embora o **Sublime Text** não tenha uma integração direta com Docker, você pode instalar o plugin **Dockerfile** para editar Dockerfiles diretamente e usar ferramentas externas para gerenciar contêineres.
+
+#### Como configurar a integração:
+1. **Instalar o pacote Dockerfile**:
+   - Abra o **Package Control** no Sublime Text e instale o pacote **Dockerfile**.
+   
+2. **Gerenciar Docker externamente**:
+   - O Sublime Text não interage diretamente com o Docker via TCP, mas você pode usar ferramentas de linha de comando ou um terminal integrado ao Sublime para executar comandos Docker e Docker Compose.
+
+Cada uma dessas IDEs tem uma abordagem diferente para integrar o Docker. As IDEs da JetBrains, como IntelliJ e PyCharm, oferecem uma das melhores integrações com o Docker, permitindo gerenciamento completo de contêineres diretamente na IDE, enquanto outras, como o Atom e o Sublime, oferecem soluções mais simples.
+
