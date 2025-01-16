@@ -62,5 +62,3 @@ CREATE TABLE git (
 	FOREIGN KEY (fk_id_user) REFERENCES usuarios(id_user),
 	FOREIGN KEY (fk_id_task) REFERENCES task(id_task)
 );
-
-docker run --name meu-postgres -e POSTGRES_PASSWORD=minhasenha -d -p 5432:5432 postgres
