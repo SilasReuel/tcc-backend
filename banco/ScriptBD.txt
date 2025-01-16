@@ -1,3 +1,8 @@
+		* --- TIPOS ---*
+
+CREATE TYPE STATUS AS ENUM ('concluído', 'em andamento', 'em aberto', 'prazo encerrado');
+CREATE TYPE TIPO AS ENUM ('Gerente de equipes', 'Líder de equipe', 'Membro de equipe');
+
 		* --- USUÁRIOS --- *
 
 CREATE TABLE usuarios (
