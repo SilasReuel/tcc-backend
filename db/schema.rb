@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_14_000545) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_15_145319) do
   create_table "equipes", force: :cascade do |t|
     t.string "nome_equipe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sprints", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
