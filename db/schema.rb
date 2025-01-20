@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_15_145319) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_20_185538) do
   create_table "equipes", force: :cascade do |t|
-    t.string "nome_equipe"
+    t.string "nome"
+    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "equipes_usuarios", id: false, force: :cascade do |t|
+    t.integer "equipe_id", null: false
+    t.integer "usuario_id", null: false
   end
 
   create_table "sprints", force: :cascade do |t|
@@ -25,6 +31,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_15_145319) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "usuario_equipes", force: :cascade do |t|
+    t.integer "usuario_id", null: false
+    t.integer "equipe_id", null: false
+    t.string "papel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipe_id"], name: "index_usuario_equipes_on_equipe_id"
+    t.index ["usuario_id"], name: "index_usuario_equipes_on_usuario_id"
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "user_git"
     t.string "email"
@@ -33,4 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_15_145319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "usuario_equipes", "equipes"
+  add_foreign_key "usuario_equipes", "usuarios"
 end

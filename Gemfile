@@ -51,4 +51,6 @@ group :development, :test do
   # gem "pg"
 
   gem "sassc-rails"
+
+  gem "active_model_serializers"
 end
