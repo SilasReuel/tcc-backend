@@ -1,7 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome_equipe: MyString
+  usuario: one
+  equipe: one
+  papel: MyString
 
 two:
-  nome_equipe: MyString
+  usuario: two
+  equipe: two
+  papel: MyString

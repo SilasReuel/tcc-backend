@@ -1,6 +1,7 @@
 class EquipesController < ApplicationController
-  before_action :set_equipe, only: %i[show update destroy]
+  before_action :set_equipe, only: %i[ show update destroy ]
 
+  # GET /equipes
   def index
     @equipes = Equipe.all
 
@@ -9,12 +10,7 @@ class EquipesController < ApplicationController
 
   # GET /equipes/1
   def show
-    @equipe = Equipe.find(params[:id])
-    if @equipe
-      render json: @equipe
-    else
-      render json: @equipe.errors, status: :not_found
-    end
+    render json: @equipe
   end
 
   # POST /equipes
@@ -39,13 +35,7 @@ class EquipesController < ApplicationController
 
   # DELETE /equipes/1
   def destroy
-    @equipe = Equipe.find(params[:id])
-
-    if @equipe.destroy!
-      render json: @equipe, status: :no_content
-    else
-      render json: @equipe.errors, status: :not_found
-    end
+    @equipe.destroy!
   end
 
   private
@@ -56,6 +46,6 @@ class EquipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def equipe_params
-      params.expect(equipe: [ :nome_equipe ])
+      params.expect(equipe: [ :nome, :descricao ])
     end
 end
