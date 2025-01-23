@@ -53,4 +53,6 @@ group :development, :test do
   gem "sassc-rails"
 
   gem "active_model_serializers"
+
+  gem "rdoc", "~> 6.11.0"
 end
