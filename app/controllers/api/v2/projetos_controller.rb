@@ -1,4 +1,4 @@
-class ProjetosController < ApplicationController
+class Api::V2::ProjetosController < ApplicationController
   before_action :set_projeto, only: %i[ show update destroy ]
 
   # GET /projetos

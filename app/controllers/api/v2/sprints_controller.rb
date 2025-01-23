@@ -1,4 +1,4 @@
-class SprintsController < ApplicationController
+class Api::V2::SprintsController < ApplicationController
   before_action :set_sprint, only: %i[ show update destroy ]
 
   # GET /sprints

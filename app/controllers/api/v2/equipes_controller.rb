@@ -1,4 +1,4 @@
-class EquipesController < ApplicationController
+class Api::V2::EquipesController < ApplicationController
   before_action :set_equipe, only: %i[ show update destroy ]
 
   # GET /equipes
