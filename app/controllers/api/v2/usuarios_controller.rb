@@ -1,4 +1,4 @@
-class UsuariosController < ApplicationController
+class Api::V2::UsuariosController < ApplicationController
   before_action :set_usuario, only: %i[ show update destroy ]
 
   # GET /usuarios

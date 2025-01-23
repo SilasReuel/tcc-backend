@@ -1,4 +1,4 @@
-class UsuarioEquipesController < ApplicationController
+class Api::V2::UsuarioEquipesController < ApplicationController
   before_action :set_usuario_equipe, only: %i[ show update destroy ]
 
   # GET /usuario_equipes
