@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  data_criacao: 2025-01-23
+
+two:
+  nome: MyString
+  descricao: MyText
+  data_criacao: 2025-01-23
