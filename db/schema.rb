@@ -27,11 +27,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_23_185141) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "equipes_usuarios", id: false, force: :cascade do |t|
-    t.integer "equipe_id", null: false
-    t.integer "usuario_id", null: false
-  end
-
   create_table "projetos", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
