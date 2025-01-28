@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v2 do
+      get "usuarios/:nome", to: "usuarios#show_by_name"
       resources :equipe_projetos
       resources :projetos
       resources :usuario_equipes
-      resources :usuarios, :equipes, :sprints
+      resources :usuarios
+      resources :equipes, :sprints
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
