@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v2 do
-      get "usuarios/:nome", to: "usuarios#show_by_name"
+      get "usuarios/nome/:nome", to: "usuarios#show_by_name"
       resources :equipe_projetos
       resources :projetos
       resources :usuario_equipes
