@@ -18,6 +18,14 @@ class Api::V2::UsuariosController < ApplicationController
     end
   end
 
+  # GET /usuarios/nome
+  def show_by_name
+    @usuario = Usuario.find_by(nome: params[:nome])
+    if @usuario
+      render json: @usuario
+    end
+  end
+
   # POST /usuarios
   def create
     @usuario = Usuario.new(usuario_params)
