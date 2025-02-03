@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_23_185141) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_03_211817) do
   create_table "equipe_projetos", force: :cascade do |t|
     t.integer "equipe_id", null: false
     t.integer "projeto_id", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_23_185141) do
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "excluido", default: false, null: false
   end
 
   add_foreign_key "equipe_projetos", "equipes"
