@@ -18,7 +18,7 @@ class Api::V2::UsuariosController < ApplicationController
     end
   end
 
-  # GET /usuarios/nome
+  # GET /usuarios/nome/nome
   def show_by_name
     @usuario = Usuario.find_by(nome: params[:nome])
     if @usuario
@@ -31,7 +31,7 @@ class Api::V2::UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
 
     if @usuario.save
-      render json: @usuario, status: :created, location: @usuario
+      render json: @usuario, status: :created, location: api_v2_usuario_url(@usuario)
     else
       render json: @usuario.errors, status: :unprocessable_entity
     end
@@ -65,6 +65,6 @@ class Api::V2::UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.expect(usuario: [ :nome, :senha, :email, :user_git ])
+      params.expect(usuario: [ :nome, :senha, :email, :user_git, :excluido ])
     end
 end
