@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_03_211817) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_04_154642) do
   create_table "equipe_projetos", force: :cascade do |t|
     t.integer "equipe_id", null: false
     t.integer "projeto_id", null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_211817) do
     t.datetime "data_fim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "projeto_id"
+    t.index ["projeto_id"], name: "index_sprints_on_projeto_id"
   end
 
   create_table "usuario_equipes", force: :cascade do |t|
@@ -65,6 +67,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_211817) do
 
   add_foreign_key "equipe_projetos", "equipes"
   add_foreign_key "equipe_projetos", "projetos"
+  add_foreign_key "sprints", "projetos"
   add_foreign_key "usuario_equipes", "equipes"
   add_foreign_key "usuario_equipes", "usuarios"
 end

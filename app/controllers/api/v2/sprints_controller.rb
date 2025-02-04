@@ -23,7 +23,7 @@ class Api::V2::SprintsController < ApplicationController
     @sprint = Sprint.new(sprint_params)
 
     if @sprint.save
-      render json: @sprint, status: :created, location: @sprint
+      render json: @sprint, status: :created, location: api_v2_sprint_url(@sprint)
     else
       render json: @sprint.errors, status: :unprocessable_entity
     end
@@ -57,6 +57,6 @@ class Api::V2::SprintsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sprint_params
-      params.expect(sprint: [ :nome, :data_inicio, :data_fim ])
+      params.expect(sprint: [ :nome, :data_inicio, :data_fim, :projeto_id ])
     end
 end
