@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v2 do
-      get "usuarios/nome/:nome", to: "usuarios#show_by_name" # Rota para buscar usuário pelo nome
       resources :equipe_projetos
       resources :projetos
+      get "projetos/ps/:id", to: "projetos#show_projeto_sprint_by_id" # Rota para buscar projeto  pelo 'id' e retorná-lo com suas sprints
       resources :usuario_equipes
       resources :usuarios
+      get "usuarios/nome/:nome", to: "usuarios#show_by_name" # Rota para buscar usuário pelo nome
       resources :equipes, :sprints
     end
   end

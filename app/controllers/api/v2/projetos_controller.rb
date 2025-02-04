@@ -10,7 +10,22 @@ class Api::V2::ProjetosController < ApplicationController
 
   # GET /projetos/1
   def show
-    render json: @projeto
+    @projeto = Usuario.find(params[:id])
+    if @projeto
+      render json: @projeto
+    else
+      render json: @projeto.errors, status: :not_found
+    end
+  end
+
+  # GET /projetos/ps/1
+  def show_projeto_sprint_by_id # Consulta projeto pelo id e retorna o projeto com suas sprints
+    @projeto = Projeto.includes(:sprints).find(params[:id])
+    if @projeto
+      render json: { projeto: @projeto, sprints: @projeto.sprints }
+    else
+      render json: @projeto.errors, status: :not_found
+    end
   end
 
   # POST /projetos
