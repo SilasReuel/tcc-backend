@@ -18,7 +18,7 @@ class Api::V2::EquipeProjetosController < ApplicationController
     @equipe_projeto = EquipeProjeto.new(equipe_projeto_params)
 
     if @equipe_projeto.save
-      render json: @equipe_projeto, status: :created, location: @equipe_projeto
+      render json: @equipe_projeto, status: :created, location: api_v2_equipe_projeto_url(@equipe_projeto)
     else
       render json: @equipe_projeto.errors, status: :unprocessable_entity
     end
