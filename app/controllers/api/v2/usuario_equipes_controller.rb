@@ -18,7 +18,7 @@ class Api::V2::UsuarioEquipesController < ApplicationController
     @usuario_equipe = UsuarioEquipe.new(usuario_equipe_params)
 
     if @usuario_equipe.save
-      render json: @usuario_equipe, status: :created, location: api_v2_usuario_equipe_url(@usuario_equipe)
+      render json: @usuario_equipe, status: :created, location: @usuario_equipe
     else
       render json: @usuario_equipe.errors, status: :unprocessable_entity
     end
