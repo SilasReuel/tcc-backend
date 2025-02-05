@@ -8,8 +8,6 @@ Rails.application.routes.draw do
       resources :usuarios
       get "usuarios/nome/:nome", to: "usuarios#show_by_name" # Rota para buscar usuário pelo nome
       resources :equipes, :sprints
-      resources :dashboard
-      get "dashboard/dados/:id", to: "dashboard#dados"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
